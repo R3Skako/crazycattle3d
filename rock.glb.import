@@ -1,0 +1,16 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://rv81fpjxeece"
+path="res://.godot/imported/rock.glb-0185f9ac91e02a408af966be38935650.scn"
+
+[deps]
+
+source_file="res://rock.glb"
+dest_files=["res://.godot/imported/rock.glb-0185f9ac91e02a408af966be38935650.scn"]
+
+[params]
+
+dummy_value_ignore_me=0

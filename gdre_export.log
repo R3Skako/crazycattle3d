@@ -1,0 +1,88 @@
+GDRE Tools v0.9.0-rc.2
+Windows 10.0.19045, NVIDIA GeForce RTX 3070, opengl3
+Opening file: C:/Users/fireb/Downloads/CrazyCattle3D/CrazyCattle3D.pck
+Verified 168 files, no errors detected!
+Extracted 168 files, no errors detected!
+WARNING: Converting lossy imports, you may lose fidelity for indicated assets when re-importing upon loading the project
+   at: ImportExporter::_export_imports (modules\gdsdecomp\utility\import_exporter.cpp:241)
+Script version 4.3.0-stable (rev 0x77af6ca) detected
+Exporting resources in parallel...
+WARNING: Conversion for Resource of type FontFile and format png not implemented
+   at: ImportExporter::report_unsupported_resource (modules\gdsdecomp\utility\import_exporter.cpp:688)
+Saved project config project.godot.
+
+
+********************************EXPORT REPORT********************************
+
+Totals:                                 
+Decompiled scripts:                     16
+Failed scripts:                         0
+Imported resources for export session:  65
+Successfully converted:                 64
+Lossy:                                  14
+Rewrote metadata:                       44
+Non-importable conversions:             6
+Not converted:                          1
+Failed conversions:                     0
+-------------
+
+
+The following files were converted from an import that was stored lossy.
+You may lose fidelity when re-importing these files upon loading the project.
+res://.godot/imported/baa.wav-80456795cf75cb711be4a8d9ae85fc8b.sample to res://baa.wav
+res://.godot/imported/credits.wav-14297e1db14b2d5df18841be6ff53fb4.sample to res://credits.wav
+res://.godot/imported/crowd.wav-f6cb2752c6c89aa4f948d336441c0e31.sample to res://crowd.wav
+res://.godot/imported/explode.wav-5228a4f8d8190fa3477fac81d1ccba49.sample to res://explode.wav
+res://.godot/imported/games.jpg-18072e2bb8d16a02fd07aaf5a34e24ce.s3tc.ctex to res://games.jpg
+res://.godot/imported/options_volumetest.wav-58bf50af1618099f2ca6004cc36c7f23.sample to res://options_volumetest.wav
+res://.godot/imported/sheep_generated-image-348261704.jpg-36bec74daaa46fa8f97c696760dbd623.s3tc.ctex to res://sheep_generated-image-348261704.jpg
+res://.godot/imported/stonehouse_free-photo-of-stone-farmhouse-in-yorkshire-dales-landscape.jpg-66d7928d1413bd2ffbf7e8bdf081e1be.s3tc.ctex to res://stonehouse_free-photo-of-stone-farmhouse-in-yorkshire-dales-landscape.jpg
+res://.godot/imported/uihover.wav-1a15e391d08d544a9d0d4b98154c5771.sample to res://uihover.wav
+res://.godot/imported/uipress.wav-36781bcc4e1e73fb50fe9955f19cc39d.sample to res://uipress.wav
+res://.godot/imported/uirelease.wav-92dea91c0683097c310ff95b8f820db4.sample to res://uirelease.wav
+res://.godot/imported/world1.wav-029c80cf0dd57787a6164eac66334b6a.sample to res://world1.wav
+res://.godot/imported/world2.wav-8f25c520a6309457e1382b83bc311f15.sample to res://world2.wav
+res://.godot/imported/world3.wav-eb3cf57b67bf6fe310f4f7973d59a594.sample to res://world3.wav
+------
+
+The following files were converted and saved to a non-original path, but did not have their import data rewritten.
+These files will not be re-imported when loading the project.
+res://.godot/imported/amazingfence.glb-877529c3ec4e90a8bb228c07274e5549.scn to res://.assets/amazingfence.glb
+res://.godot/imported/fencircular.glb-b7f79368e4c34884376c19494487bc65.scn to res://.assets/fencircular.glb
+res://.godot/imported/pyramid.glb-2a37d7198a423a165d147972fe2bcb3f.scn to res://.assets/pyramid.glb
+res://.godot/imported/rock.glb-0185f9ac91e02a408af966be38935650.scn to res://.assets/rock.glb
+res://.godot/imported/sheep.glb-9fe60682111f411677e456c397813ebd.scn to res://.assets/sheep.glb
+res://.godot/imported/stonehouse.glb-4c7f186428cca24fc39dfc9fd26ccafa.scn to res://.assets/stonehouse.glb
+------
+
+The following files were not converted because support has not been implemented yet:
+res://.godot/imported/numbersheet.png-318bc5d6af611724a5221f7dceb7b8c8.fontdata to res://numbers/numbersheet.png
+
+
+
+---------------------------------IMPORTANT NOTES----------------------------------
+
+
+Unsupported Resources Detected:
+The following resource types were detected in the project that conversion is not implemented for yet.
+See Export Report to see which resources were not exported.
+You will still be able to edit the project in the editor regardless.
+ - Resource Type: FontFile, Format: png
+
+------
+Experimental Scene Export:
+Scene export is EXPERIMENTAL and exported scenes may be inaccurate.
+Thus, all exported scenes have been saved to the .assets directory, which will not be picked up by the editor for import.
+Please report any issues you encounter with exported scenes to the Github page Github.
+
+
+
+------------------------------------------------------------------------------------
+
+Use Godot editor version 4.4.1 to edit the project.
+Note: the project may be using a custom version of Godot. Detection for this has not been implemented yet.
+If you find that you have many non-import errors upon opening the project 
+(i.e. scripts or shaders have many errors), use the original game's binary as the export template.
+
+*******************************************************************************
+

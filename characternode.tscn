@@ -1,0 +1,338 @@
+[gd_scene load_steps=29 format=4 uid="uid://bfllceqgmkr8f"]
+
+[ext_resource type="PackedScene" uid="uid://crl0n3vt6mfwo" path="res://sheep.glb" id="1"]
+[ext_resource type="FontFile" uid="uid://cedabdtsijvhn" path="res://numbers/numbersheet.png" id="2"]
+[ext_resource type="Script" uid="uid://b00g27xwjo2ee" path="res://label_3d.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://cw2w314pg1hqh" path="res://explode.wav" id="4"]
+[ext_resource type="Texture2D" uid="uid://h0ju080swc63" path="res://explosion-Sheet.png" id="5"]
+[ext_resource type="AudioStream" uid="uid://dvtte0lvio6u0" path="res://baa.wav" id="6"]
+
+[sub_resource type="GDScript" id="GDScript_ol8a7"]
+script/source = "extends Node3D
+var isdead = false
+
+func newtime():
+	return randi_range(2,15)
+	
+func _ready():
+	Global.global_sheep += 1
+	randomize()
+	newtime()
+
+func _physics_process(_delta):
+	if isdead == false:
+		var dead = $VehicleBody3D/detect_dead.is_colliding()
+		if dead == true:
+			Global.eliminated = \"[pulse]Sheep No. \"+str($VehicleBody3D/sheep/Label3D.localnum)+\" has been eliminated.\"
+			$VehicleBody3D/Explode.play()
+			$VehicleBody3D/explosion.play()
+			$VehicleBody3D/sheep.queue_free()
+			$VehicleBody3D/CollisionShape3D.queue_free()
+			$Timer.one_shot = true
+			Global.global_sheep -= 1
+			isdead = true
+		
+			
+
+func _on_timer_timeout() -> void:
+	$VehicleBody3D/Bleat.pitch_scale = randf_range(0.7,1.3)
+	$VehicleBody3D/Bleat.play()
+	$Timer.wait_time = newtime()
+"
+
+[sub_resource type="GDScript" id="GDScript_q5qcx"]
+resource_name = "npcscript"
+script/source = "extends VehicleBody3D
+
+func _physics_process(delta):
+	var left = $detect_left.is_colliding()
+	var right = $detect_right.is_colliding()
+	var charge = $detect_ahead.is_colliding()
+	var cright = $detect_cright.is_colliding()
+	var cleft = $detect_cleft.is_colliding()
+
+	steering = 0
+	engine_force = 100
+
+	if charge == true:
+		steering = 0
+		engine_force = 200
+	elif cleft == true:
+		steering = 9
+		engine_force = 300
+	elif cright == true:
+		steering = -9
+		engine_force = 300
+	elif left == true:
+		steering = 3
+		engine_force = 70
+	elif right == true:
+		steering = -3
+		engine_force = 70
+	else:
+		steering = 0
+
+
+func _on_tree_entered() -> void:
+	pass # Replace with function body.
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_82ayb"]
+size = Vector3(1, 0.42281, 1.71842)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q5qcx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mckr2"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu6n2"]
+atlas = ExtResource("5")
+region = Rect2(200, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idw84"]
+atlas = ExtResource("5")
+region = Rect2(400, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr3by"]
+atlas = ExtResource("5")
+region = Rect2(600, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otqp8"]
+atlas = ExtResource("5")
+region = Rect2(800, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgna4"]
+atlas = ExtResource("5")
+region = Rect2(1000, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrw10"]
+atlas = ExtResource("5")
+region = Rect2(1200, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swpcf"]
+atlas = ExtResource("5")
+region = Rect2(1400, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m4an"]
+atlas = ExtResource("5")
+region = Rect2(1600, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bcaq"]
+atlas = ExtResource("5")
+region = Rect2(1800, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig1cg"]
+atlas = ExtResource("5")
+region = Rect2(2000, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngw1e"]
+atlas = ExtResource("5")
+region = Rect2(2200, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecm48"]
+atlas = ExtResource("5")
+region = Rect2(2400, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5xjb"]
+atlas = ExtResource("5")
+region = Rect2(2600, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogd5d"]
+atlas = ExtResource("5")
+region = Rect2(2800, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxr8k"]
+atlas = ExtResource("5")
+region = Rect2(3000, 0, 200, 282)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcn1b"]
+atlas = ExtResource("5")
+region = Rect2(3200, 0, 200, 282)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sxx3n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mckr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu6n2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idw84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr3by")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otqp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgna4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrw10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swpcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m4an")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bcaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig1cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngw1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecm48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5xjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogd5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxr8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcn1b")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Node3D" type="Node3D"]
+script = SubResource("GDScript_ol8a7")
+
+[node name="VehicleBody3D" type="VehicleBody3D" parent="."]
+mass = 30.0
+script = SubResource("GDScript_q5qcx")
+
+[node name="sheep" parent="VehicleBody3D" instance=ExtResource("1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0158744, -0.521821, 0.932096)
+
+[node name="Label3D" type="Label3D" parent="VehicleBody3D/sheep"]
+transform = Transform3D(-3.36011e-08, 0, 1, 0, 0.561602, 0, -0.768704, 0, -4.37114e-08, 0.626516, 1.21547, 1.30486)
+pixel_size = 0.01600000075995922
+shaded = true
+modulate = Color(0.180575, 1, 0.99993, 1)
+text = "52"
+font = ExtResource("2")
+script = ExtResource("3")
+
+[node name="Label3D2" type="Label3D" parent="VehicleBody3D/sheep/Label3D"]
+transform = Transform3D(-1, 0, 1.13728e-07, 0, 1, 0, -6.72022e-08, 0, -1, 2.08616e-07, 0, -1.25202)
+pixel_size = 0.01600000075995922
+shaded = true
+modulate = Color(0.180575, 1, 0.99993, 1)
+text = "52"
+font = ExtResource("2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.164907, -0.111954)
+shape = SubResource("BoxShape3D_82ayb")
+
+[node name="front_left_wheel" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.674803, -0.205165, 0.747582)
+use_as_traction = true
+wheel_radius = 0.4000000059604645
+wheel_friction_slip = 100.0
+suspension_stiffness = 50.0
+suspension_max_force = 60000.0
+damping_compression = 1.899999976158142
+damping_relaxation = 2.0
+
+[node name="back_left_wheel" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.674803, -0.205165, -0.921626)
+use_as_steering = true
+wheel_radius = 0.4000000059604645
+wheel_friction_slip = 100.0
+suspension_stiffness = 50.0
+suspension_max_force = 60000.0
+damping_compression = 1.899999976158142
+damping_relaxation = 2.0
+
+[node name="front_right_wheel" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.733593, -0.205165, 0.747582)
+use_as_traction = true
+wheel_radius = 0.4000000059604645
+wheel_friction_slip = 100.0
+suspension_stiffness = 50.0
+suspension_max_force = 60000.0
+damping_compression = 1.899999976158142
+damping_relaxation = 2.0
+
+[node name="back_right_wheel" type="VehicleWheel3D" parent="VehicleBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.733593, -0.205165, -0.921626)
+use_as_steering = true
+wheel_radius = 0.4000000059604645
+wheel_friction_slip = 100.0
+suspension_stiffness = 50.0
+suspension_max_force = 60000.0
+damping_compression = 1.899999976158142
+damping_relaxation = 2.0
+
+[node name="detect_right" type="ShapeCast3D" parent="VehicleBody3D"]
+transform = Transform3D(13.8499, 0, 0, 0, 1, 0, 0, 0, 25.6991, -7.68799, 1.56138, 1.81173)
+shape = SubResource("BoxShape3D_q5qcx")
+
+[node name="detect_dead" type="ShapeCast3D" parent="VehicleBody3D"]
+transform = Transform3D(2.31998, 0, 0, 0, 1.91584, 0, 0, 0, 4.26813, 0.137185, 7.12678, 0.818188)
+shape = SubResource("BoxShape3D_q5qcx")
+
+[node name="detect_left" type="ShapeCast3D" parent="VehicleBody3D"]
+transform = Transform3D(13.1936, 0, 0, 0, 1, 0, 0, 0, 26.1366, 8.32714, 1.58465, 2.41082)
+shape = SubResource("BoxShape3D_q5qcx")
+
+[node name="detect_cright" type="ShapeCast3D" parent="VehicleBody3D"]
+transform = Transform3D(6.65429, 0, 0, 0, 0.928875, 0, 0, 0, 8.49948, -3.52772, 1.56221, -0.0492039)
+shape = SubResource("BoxShape3D_q5qcx")
+
+[node name="detect_cleft" type="ShapeCast3D" parent="VehicleBody3D"]
+transform = Transform3D(6.33897, 0, 0, 0, 0.928875, 0, 0, 0, 8.64417, 4.16687, 1.58382, 0.148933)
+shape = SubResource("BoxShape3D_q5qcx")
+
+[node name="detect_ahead" type="ShapeCast3D" parent="VehicleBody3D"]
+transform = Transform3D(1.38554, 0, 0, 0, 1, 0, 0, 0, 40.2172, 0.229289, 1.58465, 24.7895)
+shape = SubResource("BoxShape3D_q5qcx")
+
+[node name="Explode" type="AudioStreamPlayer3D" parent="VehicleBody3D"]
+stream = ExtResource("4")
+volume_db = -13.0
+pitch_scale = 1.4600000381469727
+max_distance = 423.7200012207031
+panning_strength = 1.4299999475479126
+doppler_tracking = 2
+
+[node name="explosion" type="AnimatedSprite3D" parent="VehicleBody3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+billboard = 1
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sxx3n")
+
+[node name="Bleat" type="AudioStreamPlayer3D" parent="VehicleBody3D"]
+stream = ExtResource("6")
+volume_db = -15.909000396728516
+max_db = 0.6650000214576721
+max_distance = 31.030000686645508
+doppler_tracking = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

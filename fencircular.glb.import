@@ -1,0 +1,16 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://7eeg8dy6gh1c"
+path="res://.godot/imported/fencircular.glb-b7f79368e4c34884376c19494487bc65.scn"
+
+[deps]
+
+source_file="res://fencircular.glb"
+dest_files=["res://.godot/imported/fencircular.glb-b7f79368e4c34884376c19494487bc65.scn"]
+
+[params]
+
+dummy_value_ignore_me=0
