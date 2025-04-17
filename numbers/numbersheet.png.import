@@ -1,0 +1,15 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://cedabdtsijvhn"
+path="res://.godot/imported/numbersheet.png-318bc5d6af611724a5221f7dceb7b8c8.fontdata"
+
+[deps]
+
+source_file="res://numbers/numbersheet.png"
+dest_files=["res://.godot/imported/numbersheet.png-318bc5d6af611724a5221f7dceb7b8c8.fontdata"]
+
+[params]
+
+dummy_value_ignore_me=0
