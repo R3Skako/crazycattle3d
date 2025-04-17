@@ -1,0 +1,16 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://b7yjy8icijurg"
+path="res://.godot/imported/stonehouse.glb-4c7f186428cca24fc39dfc9fd26ccafa.scn"
+
+[deps]
+
+source_file="res://stonehouse.glb"
+dest_files=["res://.godot/imported/stonehouse.glb-4c7f186428cca24fc39dfc9fd26ccafa.scn"]
+
+[params]
+
+dummy_value_ignore_me=0
