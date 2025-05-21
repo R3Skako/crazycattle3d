@@ -1,3 +1,4 @@
+# ABANDONED, NO LONGER UPDATED
 # CrazyCattle3D Source
 This is the entire source to the game [CrazyCattle3D](https://4nn4t4t.itch.io/crazycattle3d).
 # How to compile
